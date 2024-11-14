@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: k8s-getting-started-loadbalancer
+spec:
+  type: LoadBalancer  # Service type to provision an external IP address
+  selector:
+    app: k8s-getting-started  # Matches the label of the Deployment
+  ports:
+    - protocol: TCP
+      port: 80           # Port exposed externally
+      targetPort: 8080     # Port on the container that the app is running on

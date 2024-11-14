@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: k8s-getting-started-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /  # Ensures paths are properly routed to the service
+spec:
+  rules:
+  - host: "<yourname>.apps.internal-eumetsat-dataservices.s.ewcloud.host"  # Replace <yourname> with your specific subdomain
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: k8s-getting-started-service  # The name of the ClusterIP service for your app
+            port:
+              number: 8080  # Port of the service as defined in the service.yaml file

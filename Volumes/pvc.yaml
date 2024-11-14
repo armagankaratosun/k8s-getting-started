@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: k8s-getting-started-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce                      # The volume can be mounted as read-write by a single node
+  storageClassName: <your-storage-class> # Replace with the name of your storage class
+  resources:
+    requests:
+      storage: 1Gi                       # Requests 1Gi of storage

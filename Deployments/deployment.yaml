@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-getting-started
+  labels:
+    app: k8s-getting-started
+spec:
+  replicas: 3
+  strategy:
+    type: RollingUpdate # Specifies the strategy type as "RollingUpdate", meaning that pods will be updated gradually, one or a few at a time, rather than all at once.
+    rollingUpdate:
+      maxUnavailable: 0 # Ensures that no existing pods are taken down until new ones are up.
+      maxSurge: 1 # Allows up to 1 additional pod over the desired replica count during the update. This provides capacity for a new pod to be created before an old one is removed.
+  selector:
+    matchLabels:
+      app: k8s-getting-started
+  template:
+    metadata:
+      labels:
+        app: k8s-getting-started
+    spec:
+      containers:
+        - name: k8s-getting-started
+          image: armagankaratosun/k8s-getting-started:v1
+          ports:
+            - containerPort: 8080
