@@ -21,6 +21,6 @@ spec:
     spec:
       containers:
         - name: k8s-getting-started
-          image: armagankaratosun/k8s-getting-started:v2
+          image: armagankaratosun/k8s-getting-started:v1
           ports:
             - containerPort: 8080
