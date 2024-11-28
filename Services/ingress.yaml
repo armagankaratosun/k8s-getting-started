@@ -6,7 +6,7 @@ metadata:
     nginx.ingress.kubernetes.io/rewrite-target: /  # Ensures paths are properly routed to the service
 spec:
   rules:
-  - host: "<yourname>.apps.internal-eumetsat-dataservices.s.ewcloud.host"  # Replace <yourname> with your specific subdomain
+  - host: "<yourname>.<yourdomain>.com"  # Replace <yourname>.<yourdomain>.com with your specific domain
     http:
       paths:
       - path: /
